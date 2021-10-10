@@ -83,7 +83,8 @@ public class TodoList {
 				String description = rs.getString("memo");
 				String due_date = rs.getString("due_date");
 				String current_date = rs.getString("current_date");
-				TodoItem t = new TodoItem(title, description, category, due_date);
+				int is_compeleted = rs.getInt("is_completed");
+				TodoItem t = new TodoItem(title, description, category, due_date,is_compeleted);
 				t.setId(id);
 				t.setCurrent_date(current_date);
 				list.add(t);

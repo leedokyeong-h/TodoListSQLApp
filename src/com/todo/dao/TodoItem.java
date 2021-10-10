@@ -8,7 +8,7 @@ public class TodoItem {
     private String desc;
     private String current_date;
     private String category;
-    private int is_completed=0;
+    private int is_completed;
 	
 	private String due_date;
     private int Id;
@@ -33,6 +33,7 @@ public class TodoItem {
         SimpleDateFormat f = new SimpleDateFormat("yyyy/dd kk:mm:ss");
         this.current_date= f.format(new Date());
         this.due_date = due_date;
+        this.is_completed = 0;
     }
     public TodoItem(String title, String desc,String category, String due_date, int is_completed){
     	this.category = category;
@@ -79,8 +80,8 @@ public class TodoItem {
     @Override
 	public String toString() {
     	String open= "";
-    	if(is_completed == 1) open = "[v]" ;
-		return Id + " ["+category +"] "+title+open+" - "+desc + " - "+due_date +" - "+ current_date;
+    	if(this.is_completed == 1) open = "[v]" ;
+		return this.Id + " ["+this.category +"] "+this.title+ open+" - "+this.desc + " - "+this.due_date +" - "+ this.current_date;
 	}
     
 	public void setCurrent_date(String current_date) {
