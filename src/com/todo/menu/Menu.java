@@ -17,6 +17,12 @@ public class Menu {
         System.out.println("입력 역순으로 나열하기 ( ls_date_desc )");
         System.out.println("항목 완료하기 ( comp <키워드> )");
         System.out.println("완료된 항목만 출력하기 ( ls_comp )");
+        System.out.println("중요도 표시하기 ( import <키워드> )");
+        System.out.println("소요시간 변경하기 ( durat <키워드> )");
+        System.out.println("장소와 같이보기 ( place )");
+        System.out.println("json으로 저장 ( json_out )");
+        System.out.println("json 불러오기 ( json_in )");
+        System.out.println("오늘 할일! ( Today )");
         System.out.println("나가기 ( exit )");
     }
     public static void prompt() {

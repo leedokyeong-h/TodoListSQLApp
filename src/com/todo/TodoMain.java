@@ -88,8 +88,33 @@ public class TodoMain {
 			case "ls_comp":
 				TodoUtil.complistAll(l);
 				break;
+			case "import" :
+				int com = sc.nextInt();
+				TodoUtil.importItem(l,com);
+				break;
 				
-			default:
+			case "durat" :
+				int coms = sc.nextInt();
+				TodoUtil.duratItem(l, coms);
+				break;
+			case "place" :
+				TodoUtil.findplace(l);
+				break;
+			case "comp_del" :
+				TodoUtil.deletecomp(l);
+				break;
+			case "json_out" :
+				TodoUtil.json_out(l);
+				break;
+			case "json_in" :
+				TodoUtil.json_in(l);
+				break;
+				
+			case "Today" :
+				TodoUtil.Today(l);
+				break;
+			
+			default:	
 				System.out.println("해당 명령어가 없습니다. 다시 입력해 주세요! [ 기능 보기 ( help ) ]");
 				break;
 			}

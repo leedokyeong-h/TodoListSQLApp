@@ -9,9 +9,11 @@ public class TodoItem {
     private String current_date;
     private String category;
     private int is_completed;
-	
+	private int importance;
+    private String duration;
 	private String due_date;
-    private int Id;
+    private transient int Id;
+    private String place;
     
     public int getId() {
 		return Id;
@@ -25,8 +27,20 @@ public class TodoItem {
 	public void setIs_completed(int is_completed) {
 		this.is_completed = is_completed;
 	}
+    public int getImportance() {
+		return importance;
+	}
+	public void setImportance(int importance) {
+		this.importance = importance;
+	}
+	public String getDuration() {
+		return duration;
+	}
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
 
-    public TodoItem(String title, String desc,String category, String due_date){
+    public TodoItem(String title, String desc,String category, String due_date, int importance, String duration ){
     	this.category = category;
         this.title=title;
         this.desc=desc;
@@ -34,6 +48,8 @@ public class TodoItem {
         this.current_date= f.format(new Date());
         this.due_date = due_date;
         this.is_completed = 0;
+        this.importance = importance;
+        this.duration= duration;
     }
     public TodoItem(String title, String desc,String category, String due_date, int is_completed){
     	this.category = category;
@@ -44,7 +60,30 @@ public class TodoItem {
         this.due_date = due_date;
         this.is_completed = is_completed;
     }
+    public TodoItem(String title, String desc,String category, String due_date, int is_completed, int importance, String duration){
+    	this.category = category;
+        this.title=title;
+        this.desc=desc;
+        SimpleDateFormat f = new SimpleDateFormat("yyyy/dd kk:mm:ss");
+        this.current_date= f.format(new Date());
+        this.due_date = due_date;
+        this.is_completed = is_completed;
+        this.importance = importance;
+        this.duration = duration;
+    }
     
+    public TodoItem(String title, String desc,String category, String due_date, int is_completed, int importance, String duration,String place){
+    	this.category = category;
+        this.title=title;
+        this.desc=desc;
+        SimpleDateFormat f = new SimpleDateFormat("yyyy/dd kk:mm:ss");
+        this.current_date= f.format(new Date());
+        this.due_date = due_date;
+        this.is_completed = is_completed;
+        this.importance = importance;
+        this.duration = duration;
+        this.place = place;
+    }
     public String getCategory() {
 		return category;
 	}
@@ -81,10 +120,26 @@ public class TodoItem {
 	public String toString() {
     	String open= "";
     	if(this.is_completed == 1) open = "[v]" ;
-		return this.Id + " ["+this.category +"] "+this.title+ open+" - "+this.desc + " - "+this.due_date +" - "+ this.current_date;
+    	for(int i=0;i<importance;i++) {
+    		System.out.print("★");
+    		
+    	}
+		return " "+this.Id + " ["+this.category +"] "+this.title+ open+" - "+this.desc + " - "+this.due_date +" - "+ this.current_date +" 예상 소모 시간: "+ this.duration;
+	}
+    
+    public String toString2() {
+    	System.out.println("장소는 > "+place);
+    	String open= "";
+    	if(this.is_completed == 1) open = "[v]" ;
+    	for(int i=0;i<importance;i++) {
+    		System.out.print("★");
+    		
+    	}
+		return " "+this.Id + " ["+this.category +"] "+this.title+ open+" - "+this.desc + " - "+this.due_date +" - "+ this.current_date +" 예상 소모 시간: "+ this.duration;
 	}
     
 	public void setCurrent_date(String current_date) {
         this.current_date = current_date;
     }
+	
 }
